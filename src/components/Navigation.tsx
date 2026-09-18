@@ -14,11 +14,31 @@ const links = [
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.75);
-    onScroll();
+    let last = window.scrollY;
+    let ticking = false;
+
+    const update = () => {
+      const y = window.scrollY;
+      setScrolled(y > window.innerHeight * 0.75);
+      // hide when scrolling down past a threshold, show when scrolling up
+      if (y > last && y > 140) setHidden(true);
+      else if (y < last) setHidden(false);
+      if (y < 80) setHidden(false);
+      last = y;
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    update();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -37,7 +57,11 @@ export default function Navigation() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-[90] flex justify-center px-4 pt-4 sm:px-6 sm:pt-5 lg:px-8">
+      <header
+        className={`fixed inset-x-0 top-0 z-[90] flex justify-center px-4 pt-4 transition-[transform,opacity] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:px-6 sm:pt-5 lg:px-8 ${
+          hidden && !open ? "pointer-events-none -translate-y-[140%] opacity-0" : "translate-y-0 opacity-100"
+        }`}
+      >
         <nav
           className={`grid w-full max-w-[1240px] grid-cols-[auto_1fr_auto] items-center gap-4 rounded-2xl border px-3 py-2.5 transition-all duration-500 sm:px-5 ${
             scrolled
