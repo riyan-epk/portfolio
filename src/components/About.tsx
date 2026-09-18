@@ -32,7 +32,7 @@ export default function About() {
     <section id="about" className="relative bg-paper">
       {/* seam from the ink hero */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-ink/[0.06] to-transparent" />
-      <div className="shell relative py-24 lg:py-36">
+      <div className="shell relative section-y">
         <div className="grid gap-16 lg:grid-cols-[1fr_1.05fr] lg:gap-20">
           <div className="lg:sticky lg:top-28 lg:self-start">
             <SectionHead

@@ -20,7 +20,7 @@ export default function Skills() {
 
   return (
     <section id="skills" className="bg-paper">
-      <div className="shell py-24 lg:py-32">
+      <div className="shell section-y">
         <SectionHead
           index="(02)"
           kicker="Capabilities"

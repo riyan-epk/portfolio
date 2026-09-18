@@ -39,14 +39,14 @@ export default function Navigation() {
     <>
       <header className="fixed inset-x-0 top-0 z-[90] flex justify-center px-4 pt-4">
         <nav
-          className={`flex w-full max-w-[1240px] items-center justify-between rounded-2xl border px-4 py-2.5 transition-all duration-500 ${
+          className={`grid w-full max-w-[1240px] grid-cols-[auto_1fr_auto] items-center gap-4 rounded-2xl border px-3 py-2.5 transition-all duration-500 sm:px-5 ${
             scrolled
-              ? "border-[color:var(--line-l)] bg-paper-1/80 shadow-[0_8px_30px_rgba(20,22,28,0.08)] backdrop-blur-xl"
-              : "border-white/10 bg-white/[0.02] backdrop-blur-md"
+              ? "border-[color:var(--line-l)] bg-paper-1/85 shadow-[0_8px_30px_rgba(20,22,28,0.08)] backdrop-blur-xl"
+              : "border-white/10 bg-white/[0.03] backdrop-blur-md"
           }`}
         >
           <a href="#home" className="flex items-center gap-2.5" aria-label="Home">
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-amber font-display text-sm font-bold text-ink">
+            <span className="grid h-9 w-9 place-items-center rounded-xl bg-amber font-display text-base font-bold text-ink">
               R
             </span>
             <span
@@ -58,15 +58,15 @@ export default function Navigation() {
             </span>
           </a>
 
-          <div className="hidden items-center gap-1 lg:flex">
+          <div className="hidden items-center justify-center gap-0.5 lg:flex">
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
-                className={`rounded-lg px-3.5 py-2 text-[13px] font-medium transition-colors ${
+                className={`rounded-full px-3.5 py-2 text-[13px] font-medium transition-colors ${
                   dark
-                    ? "text-mist hover:text-amber"
-                    : "text-slate-2 hover:text-carbon"
+                    ? "text-mist hover:bg-white/5 hover:text-amber"
+                    : "text-slate-2 hover:bg-carbon/5 hover:text-carbon"
                 }`}
               >
                 {l.label}
@@ -74,11 +74,11 @@ export default function Navigation() {
             ))}
           </div>
 
-          <div className="flex items-center gap-2">
-            <Magnetic strength={0.3} className="hidden md:inline-block">
+          <div className="flex items-center justify-end gap-2">
+            <Magnetic strength={0.2} className="hidden md:inline-block">
               <a
                 href="#contact"
-                className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-[12.5px] font-semibold transition-colors ${
+                className={`inline-flex items-center gap-2 whitespace-nowrap rounded-full px-5 py-2.5 text-[12.5px] font-semibold transition-colors ${
                   dark
                     ? "bg-white/10 text-paper-1 hover:bg-amber hover:text-ink"
                     : "bg-ink text-paper-1 hover:bg-amber hover:text-ink"

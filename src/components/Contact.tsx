@@ -48,7 +48,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="bg-paper">
-      <div className="shell py-24 lg:py-32">
+      <div className="shell section-y">
         <div className="grid gap-14 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
           <div>
             <SectionHead

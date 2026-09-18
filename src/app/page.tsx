@@ -33,9 +33,9 @@ export default function Home() {
           <TechStrip />
           <About />
           <Skills />
+          <Integrations />
           <Projects />
           <Process />
-          <Integrations />
           <Experience />
           <Services />
           <Contact />

@@ -20,7 +20,7 @@ export default function Services() {
         className="pointer-events-none absolute right-0 top-0 h-96 w-96 rounded-full"
         style={{ background: "radial-gradient(circle, rgba(245,165,36,0.10), transparent 65%)" }}
       />
-      <div className="shell relative py-24 lg:py-32">
+      <div className="shell relative section-y">
         <SectionHead
           dark
           index="(07)"
@@ -30,18 +30,16 @@ export default function Services() {
               What I can <span className="grad-amber font-display italic">build for you.</span>
             </>
           }
+          intro="Pick a lane or hand me the whole build — here's where I plug in."
         />
 
-        <Reveal stagger={0.08} className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] sm:grid-cols-2">
+        <Reveal stagger={0.07} className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((s, i) => (
-            <div
-              key={s.t}
-              className="group relative bg-ink p-8 transition-colors hover:bg-ink-2"
-            >
+            <div key={s.t} className="card-ink card-hover group relative overflow-hidden p-6">
               <span className="font-mono text-[12px] text-amber">0{i + 1}</span>
-              <h3 className="mt-4 font-display text-xl text-paper-1">{s.t}</h3>
-              <p className="mt-2 max-w-sm text-[14px] leading-relaxed text-mist">{s.d}</p>
-              <span className="absolute bottom-0 left-0 h-px w-0 bg-gradient-to-r from-amber to-copper transition-all duration-500 group-hover:w-full" />
+              <h3 className="mt-5 font-display text-[1.15rem] leading-snug text-paper-1">{s.t}</h3>
+              <p className="mt-2.5 text-[13.5px] leading-relaxed text-mist">{s.d}</p>
+              <span className="absolute inset-x-0 bottom-0 h-px w-full origin-left scale-x-0 bg-gradient-to-r from-amber to-copper transition-transform duration-500 group-hover:scale-x-100" />
             </div>
           ))}
         </Reveal>

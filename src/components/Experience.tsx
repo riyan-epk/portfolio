@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import Reveal from "./Reveal";
 import SectionHead from "./SectionHead";
 
@@ -14,11 +13,9 @@ const areas = [
 ];
 
 export default function Experience() {
-  const [hover, setHover] = useState<number | null>(null);
-
   return (
     <section id="experience" className="bg-paper">
-      <div className="shell py-24 lg:py-32">
+      <div className="shell section-y">
         <SectionHead
           index="(06)"
           kicker="Expertise"
@@ -30,32 +27,19 @@ export default function Experience() {
           intro="Not a list of tutorials — areas where I've delivered production systems that companies run their operations on."
         />
 
-        <Reveal stagger={0.08} className="mt-14">
+        <Reveal stagger={0.06} className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {areas.map((a, i) => (
-            <div
-              key={a.t}
-              onMouseEnter={() => setHover(i)}
-              onMouseLeave={() => setHover(null)}
-              className="group relative grid grid-cols-[auto_1fr] items-center gap-6 border-t border-carbon/10 py-6 last:border-b lg:grid-cols-[auto_1fr_auto]"
-            >
-              <span className="font-mono text-[12px] text-amber">0{i + 1}</span>
-              <h3
-                className={`font-display text-2xl transition-all duration-300 lg:text-3xl ${
-                  hover === i ? "translate-x-2 text-ember" : "text-carbon"
-                }`}
-              >
+            <div key={a.t} className="card card-hover group flex flex-col p-6">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-[12px] text-amber">0{i + 1}</span>
+                <span className="h-1.5 w-1.5 rounded-full bg-carbon/15 transition-colors group-hover:bg-amber" />
+              </div>
+              <h3 className="mt-5 font-display text-xl text-carbon transition-colors group-hover:text-ember lg:text-[1.35rem]">
                 {a.t}
               </h3>
-              <div className="col-span-2 flex flex-wrap gap-2 lg:col-span-1 lg:justify-end">
+              <div className="mt-4 flex flex-wrap gap-2">
                 {a.tags.map((t) => (
-                  <span
-                    key={t}
-                    className={`chip border transition-colors ${
-                      hover === i
-                        ? "border-amber/40 bg-amber/10 text-ember"
-                        : "border-carbon/12 text-slate-2"
-                    }`}
-                  >
+                  <span key={t} className="chip border border-carbon/12 text-slate-2">
                     {t}
                   </span>
                 ))}

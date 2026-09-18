@@ -11,14 +11,14 @@ const CORE = "#ffc24b";
 type Vec = [number, number, number];
 
 const SOURCES: { pos: Vec; label: string }[] = [
-  { pos: [-3.1, 1.35, -0.2], label: ".NET" },
-  { pos: [-3.5, 0.0, 0.3], label: "SQL" },
-  { pos: [-3.0, -1.4, -0.1], label: "Flutter" },
+  { pos: [-2.45, 1.25, 0], label: ".NET" },
+  { pos: [-2.7, 0.0, 0.2], label: "SQL" },
+  { pos: [-2.4, -1.25, -0.1], label: "Flutter" },
 ];
 const DESTS: { pos: Vec; label: string }[] = [
-  { pos: [3.1, 1.35, -0.2], label: "Stripe" },
-  { pos: [3.5, 0.0, 0.3], label: "FBR" },
-  { pos: [3.0, -1.4, -0.1], label: "REST" },
+  { pos: [2.45, 1.25, 0], label: "Stripe" },
+  { pos: [2.7, 0.0, 0.2], label: "FBR" },
+  { pos: [2.4, -1.25, -0.1], label: "REST" },
 ];
 
 /** A glowing satellite node with an orbiting ring + label. */
@@ -46,12 +46,14 @@ function Node({ pos, label, side }: { pos: Vec; label: string; side: "in" | "out
         <meshBasicMaterial color={AMBER} transparent opacity={0.35} />
       </mesh>
       <Text
-        position={[0, -0.42, 0]}
-        fontSize={0.15}
-        color="#c9ccd4"
+        position={[0, -0.44, 0]}
+        fontSize={0.17}
+        color="#eef0f4"
         anchorX="center"
         anchorY="middle"
-        letterSpacing={0.02}
+        letterSpacing={0.03}
+        outlineWidth={0.004}
+        outlineColor="#0a0b0f"
       >
         {label}
       </Text>
@@ -220,6 +222,9 @@ function Signal() {
 
 export default function Scene3D() {
   const [reduced, setReduced] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const wrapRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     setReduced(
       window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
@@ -227,10 +232,23 @@ export default function Scene3D() {
     );
   }, []);
 
+  // Pause the render loop while the hero is scrolled out of view (perf).
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => setVisible(entry.isIntersecting),
+      { rootMargin: "120px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <div className="h-full w-full">
+    <div ref={wrapRef} className="h-full w-full">
       <Canvas
-        camera={{ position: [0, 0.2, 7.2], fov: 42 }}
+        frameloop={visible ? "always" : "never"}
+        camera={{ position: [0, 0.15, 8.4], fov: 40 }}
         dpr={[1, reduced ? 1.25 : 1.75]}
         gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
         style={{ background: "transparent" }}

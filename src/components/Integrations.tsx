@@ -33,10 +33,11 @@ const layers = [
 export default function Integrations() {
   return (
     <section id="integrations" className="bg-paper">
-      <div className="shell py-24 lg:py-32">
+      <div className="shell py-16 lg:py-20">
         <SectionHead
-          index="(05)"
+          index="(03)"
           kicker="Integrations"
+          align="center"
           title={
             <>
               The hard part isn&apos;t the app — it&apos;s{" "}
@@ -46,7 +47,7 @@ export default function Integrations() {
           intro="Tax authorities, payment rails, security hardware and enterprise data — I make disparate systems move data reliably through a single, observable core."
         />
 
-        <Reveal className="mt-14 overflow-hidden rounded-3xl border border-white/10 section-ink">
+        <Reveal className="mx-auto mt-10 max-w-4xl overflow-hidden rounded-3xl border border-white/10 section-ink">
           <div className="border-b border-white/8 px-6 py-4">
             <span className="font-mono text-[12px] text-mist">integration-fabric · live data flow</span>
           </div>
@@ -94,7 +95,7 @@ export default function Integrations() {
                 <g key={`s${i}`}>
                   <rect x="60" y={s.y} width="190" height="44" rx="12" fill="#14171f" stroke="rgba(255,255,255,0.12)" />
                   <circle cx="82" cy={s.y + 22} r="4" fill="#e27a3f" />
-                  <text x="100" y={s.y + 27} fill="#c9ccd4" fontSize="14" fontFamily="var(--font-mono)">{s.label}</text>
+                  <text x="100" y={s.y + 27} fill="#e6e8ec" fontSize="14" fontFamily="var(--font-mono)">{s.label}</text>
                 </g>
               ))}
 
@@ -113,7 +114,7 @@ export default function Integrations() {
                 <g key={`d${i}`}>
                   <rect x="750" y={d.y} width="190" height="44" rx="12" fill="#14171f" stroke="rgba(255,255,255,0.12)" />
                   <circle cx="772" cy={d.y + 22} r="4" fill="#f5a524" />
-                  <text x="790" y={d.y + 27} fill="#c9ccd4" fontSize="14" fontFamily="var(--font-mono)">{d.label}</text>
+                  <text x="790" y={d.y + 27} fill="#e6e8ec" fontSize="14" fontFamily="var(--font-mono)">{d.label}</text>
                 </g>
               ))}
 

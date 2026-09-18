@@ -32,7 +32,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="section-ink relative flex min-h-[100svh] items-center overflow-hidden pt-24"
+      className="section-ink relative flex min-h-[100svh] items-center overflow-hidden pt-28 pb-12 lg:pt-24"
     >
       {/* atmosphere */}
       <div className="grid-fabric pointer-events-none absolute inset-0 opacity-70" />
@@ -153,7 +153,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease, delay: 0.2 }}
-          className="relative aspect-square h-full min-h-[340px] w-full lg:min-h-[560px]"
+          className="relative h-[340px] w-full sm:h-[420px] lg:h-[540px]"
         >
           <Scene3D />
         </motion.div>
@@ -165,7 +165,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-fog lg:flex"
+        className="absolute bottom-8 right-8 hidden flex-col items-center gap-2 text-fog xl:flex"
       >
         <span className="eyebrow text-[9px]">Scroll</span>
         <span className="h-10 w-px bg-gradient-to-b from-amber/60 to-transparent" />

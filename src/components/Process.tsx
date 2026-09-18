@@ -15,10 +15,10 @@ export default function Process() {
   return (
     <section id="process" className="section-ink relative overflow-hidden">
       <div className="grid-fabric pointer-events-none absolute inset-0 opacity-40" />
-      <div className="shell relative py-24 lg:py-32">
+      <div className="shell relative section-y">
         <SectionHead
           dark
-          index="(04)"
+          index="(05)"
           kicker="How I Work"
           title={
             <>

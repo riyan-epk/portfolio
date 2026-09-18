@@ -14,7 +14,6 @@ type RevealProps = {
   delay?: number;
   duration?: number;
   stagger?: number;
-  blur?: boolean;
   start?: string;
 };
 
@@ -32,7 +31,6 @@ export default function Reveal({
   delay = 0,
   duration = 0.95,
   stagger,
-  blur = false,
   start = "top 85%",
 }: RevealProps) {
   const ref = useRef<HTMLElement>(null);
@@ -49,27 +47,22 @@ export default function Reveal({
     }
 
     const ctx = gsap.context(() => {
-      gsap.set(targets, {
-        opacity: 0,
-        y,
-        x,
-        filter: blur ? "blur(8px)" : "none",
-      });
+      gsap.set(targets, { opacity: 0, y, x, willChange: "transform, opacity" });
       gsap.to(targets, {
         opacity: 1,
         y: 0,
         x: 0,
-        filter: "blur(0px)",
         duration,
         delay,
         ease: "power3.out",
         stagger: stagger ?? 0,
+        clearProps: "willChange",
         scrollTrigger: { trigger: el, start, once: true },
       });
     }, el);
 
     return () => ctx.revert();
-  }, [y, x, delay, duration, stagger, blur, start]);
+  }, [y, x, delay, duration, stagger, start]);
 
   return createElement(as, { ref, className }, children);
 }
