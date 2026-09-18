@@ -44,7 +44,7 @@ export default function About() {
                   <span className="grad-amber font-display italic">software that ships.</span>
                 </>
               }
-              intro="I'm Riyan Mursaleen — a full-stack developer who's spent years shipping production web, mobile and business systems. I care equally about how a product feels to use and how it holds together under the hood."
+              intro="Full-stack developer shipping production web, mobile and business systems — obsessed equally with how they feel and how they hold up."
             />
             <Reveal delay={0.1} className="mt-9 flex flex-wrap gap-2">
               {scope.map((s) => (

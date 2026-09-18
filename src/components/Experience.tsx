@@ -24,27 +24,35 @@ export default function Experience() {
               Domains I&apos;ve actually <span className="grad-amber font-display italic">shipped in.</span>
             </>
           }
-          intro="Not a list of tutorials — areas where I've delivered production systems that companies run their operations on."
+          intro="Areas where I've shipped production systems companies actually run on."
         />
 
-        <Reveal stagger={0.06} className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <Reveal
+          stagger={0.06}
+          className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
+        >
           {areas.map((a, i) => (
-            <div key={a.t} className="card card-hover group flex flex-col p-6">
-              <div className="flex items-center justify-between">
+            <article
+              key={a.t}
+              className="card card-hover group flex min-h-[190px] flex-col p-7"
+            >
+              <div className="flex items-start justify-between">
                 <span className="font-mono text-[12px] text-amber">0{i + 1}</span>
-                <span className="h-1.5 w-1.5 rounded-full bg-carbon/15 transition-colors group-hover:bg-amber" />
+                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-carbon/15 transition-colors group-hover:bg-amber" />
               </div>
-              <h3 className="mt-5 font-display text-xl text-carbon transition-colors group-hover:text-ember lg:text-[1.35rem]">
+
+              <h3 className="mt-6 font-display text-[1.3rem] leading-snug text-carbon transition-colors group-hover:text-ember">
                 {a.t}
               </h3>
-              <div className="mt-4 flex flex-wrap gap-2">
+
+              <div className="mt-auto flex flex-wrap gap-2 pt-5">
                 {a.tags.map((t) => (
                   <span key={t} className="chip border border-carbon/12 text-slate-2">
                     {t}
                   </span>
                 ))}
               </div>
-            </div>
+            </article>
           ))}
         </Reveal>
       </div>

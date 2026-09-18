@@ -37,7 +37,7 @@ export default function Navigation() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-[90] flex justify-center px-4 pt-4">
+      <header className="fixed inset-x-0 top-0 z-[90] flex justify-center px-4 pt-4 sm:px-6 sm:pt-5 lg:px-8">
         <nav
           className={`grid w-full max-w-[1240px] grid-cols-[auto_1fr_auto] items-center gap-4 rounded-2xl border px-3 py-2.5 transition-all duration-500 sm:px-5 ${
             scrolled

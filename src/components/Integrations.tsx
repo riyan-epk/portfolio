@@ -33,7 +33,7 @@ const layers = [
 export default function Integrations() {
   return (
     <section id="integrations" className="bg-paper">
-      <div className="shell py-16 lg:py-20">
+      <div className="shell section-y">
         <SectionHead
           index="(03)"
           kicker="Integrations"
@@ -44,7 +44,7 @@ export default function Integrations() {
               <span className="grad-amber font-display italic">everything it talks to.</span>
             </>
           }
-          intro="Tax authorities, payment rails, security hardware and enterprise data — I make disparate systems move data reliably through a single, observable core."
+          intro="Payments, tax authorities, hardware and enterprise data — moving reliably through one observable core."
         />
 
         <Reveal className="mx-auto mt-10 max-w-4xl overflow-hidden rounded-3xl border border-white/10 section-ink">

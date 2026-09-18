@@ -33,14 +33,14 @@ export default function Services() {
           intro="Pick a lane or hand me the whole build — here's where I plug in."
         />
 
-        <Reveal stagger={0.07} className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <Reveal stagger={0.07} className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((s, i) => (
-            <div key={s.t} className="card-ink card-hover group relative overflow-hidden p-6">
+            <article key={s.t} className="card-ink card-hover group relative flex min-h-[180px] flex-col overflow-hidden p-7">
               <span className="font-mono text-[12px] text-amber">0{i + 1}</span>
-              <h3 className="mt-5 font-display text-[1.15rem] leading-snug text-paper-1">{s.t}</h3>
-              <p className="mt-2.5 text-[13.5px] leading-relaxed text-mist">{s.d}</p>
+              <h3 className="mt-6 font-display text-[1.15rem] leading-snug text-paper-1">{s.t}</h3>
+              <p className="mt-3 text-[13.5px] leading-relaxed text-mist">{s.d}</p>
               <span className="absolute inset-x-0 bottom-0 h-px w-full origin-left scale-x-0 bg-gradient-to-r from-amber to-copper transition-transform duration-500 group-hover:scale-x-100" />
-            </div>
+            </article>
           ))}
         </Reveal>
       </div>
