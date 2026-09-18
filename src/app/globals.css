@@ -252,6 +252,14 @@ html.lenis, html.lenis body { height: auto; }
 
 @keyframes dash-flow { to { stroke-dashoffset: -1000; } }
 
+/* amber pulse travelling down a timeline segment */
+@keyframes flow-down {
+  0% { top: -14px; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
 /* GSAP reveal targets start hidden to avoid flash before JS binds */
 .reveal { opacity: 0; }
 .reveal-ready .reveal { opacity: 1; } /* fallback if JS/observer never runs */

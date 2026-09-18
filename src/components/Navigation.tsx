@@ -41,7 +41,7 @@ export default function Navigation() {
         <nav
           className={`grid w-full max-w-[1240px] grid-cols-[auto_1fr_auto] items-center gap-4 rounded-2xl border px-3 py-2.5 transition-all duration-500 sm:px-5 ${
             scrolled
-              ? "border-[color:var(--line-l)] bg-paper-1/85 shadow-[0_8px_30px_rgba(20,22,28,0.08)] backdrop-blur-xl"
+              ? "border-[color:var(--line-l)] bg-paper-1/95 shadow-[0_10px_40px_rgba(20,22,28,0.14)] backdrop-blur-xl"
               : "border-white/10 bg-white/[0.03] backdrop-blur-md"
           }`}
         >
